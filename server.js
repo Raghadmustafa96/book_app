@@ -26,7 +26,7 @@ app.get('/',(req,res)=>{
   let SQL = `SELECT * FROM books;`
   client.query(SQL)
   .then (result=>{
-      //   console.log(result.rows);
+      // console.log(result.rows);
       countHandler().then(counter=>{
         res.render('./pages/index', { bookList: result.rows, total: counter })
        })
