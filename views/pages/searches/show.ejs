@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/base.css">
-</head>
-<body>
+  <%- include('./../../layout/head.ejs')  %> 
 
+<body>
   <main>
     <script src="/app.js"></script>
-    <div class = container1> Best Books !
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="/">Home</a>
-              <a href="/searches">Search the Google Books Api</a>
-            </div>
-          </div>
-    </div>
+
+    <%- include('./../../layout/dropDown.ejs')  %> 
 
     <div class = container2>
-     Search Results
+     <p class="header2">Search Results </p>
     </div>
 
     <div class = container3>
       <div id="bookItem">
         <% booksArray.forEach(element =>{ %>
-         <div>
+         <div class="divBook">
          <img src="<%= element.img%>" alt="">
          <h2><%= element.title%></h2>
          <p><%= element.author%></p>
+         <p><%= element.description %></p>
+
+         <section>
+          <form id="create-form" action="/addBooks" method="POST">
+              <fieldset>
+                <input hidden name="image_url" value = "<%= element.img%>">
+                <input hidden name="title" value = "<%= element.title %>">
+                <input hidden name="author" value = "<%= element.author  %>" >
+                <input hidden name="description" value ="<%= element.description %>" >
+                <input hidden name="isbn" value ="<%= element.isbn %>" >
+                <button id = "selectBook" type="submit">Select This Book</button>
+              </fieldset>
+            </form>
+        </section>
+
         </div>
         <%}) %>
+
        </div>
     </div>
 
   </main>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </body>
 </html>

@@ -1,41 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>search page</title>
-    <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/base.css">
-</head>
+    <%- include('./../../layout/head.ejs')  %> 
+
 <body>
     <main>
         <script src="/app.js"></script>
-        <div class = container1> Best Books !
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="/">Home</a>
-                  <a href="/searches">Search the Google Books Api</a>
-                </div>
-              </div>
-        </div>
+        <%- include('./../../layout/dropDown.ejs')  %> 
 
-        <div class = container2>Search by Title or Author</div>
+        <div class = container2> <p class="header2">Search by Title or Author </p></div>
         <div class = container3>
-        <form class = "searchForm" action="/searches/new" method="GET">
+        <form class = "searchForm" action="/searches/new" method="POST">
             <input type="text" name="search">
             <label class="searchWay"><input type="radio" name="searchWay" value="title">Title</label>
             <label class="searchWay"><input type="radio" name="searchWay" value="author">Author</label>
             <button type="submit">Search the Google Books API</button>
         </form>
     </div>
-
-    <div class = container4>
-      
-    </div>
-
     </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </body>
 </html>
