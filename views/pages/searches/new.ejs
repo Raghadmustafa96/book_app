@@ -16,14 +16,14 @@
                 <button onclick="myFunction()" class="dropbtn">Dropdown</button>
                 <div id="myDropdown" class="dropdown-content">
                   <a href="/">Home</a>
-                  <a href="/searches/new">Search the Google Books Api</a>
+                  <a href="/searches">Search the Google Books Api</a>
                 </div>
               </div>
         </div>
 
         <div class = container2>Search by Title or Author</div>
         <div class = container3>
-        <form class = "searchForm" action="/searches/show" method="GET">
+        <form class = "searchForm" action="/searches/new" method="GET">
             <input type="text" name="search">
             <label class="searchWay"><input type="radio" name="searchWay" value="title">Title</label>
             <label class="searchWay"><input type="radio" name="searchWay" value="author">Author</label>
