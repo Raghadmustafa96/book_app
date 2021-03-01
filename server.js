@@ -17,11 +17,11 @@ app.get('/',(req,res)=>{
    res.render('./pages/index');
 });
 
-app.get('/searches/new',(req,res)=>{
+app.get('/searches',(req,res)=>{
     res.render('./pages/searches/new');
 })
 
-app.get('/searches/show' , handleSearch);
+app.get('/searches/new' , handleSearch);
 
 app.use('*', notFoundRoute );
 
@@ -29,7 +29,7 @@ app.use('*', notFoundRoute );
     let searchWord = req.query.search;
     let searchWay = req.query.searchWay;
 
-    let url = `https://www.googleapis.com/books/v1/volumes?q=${searchWord}+in${searchWay}`;
+    let url = `https://www.googleapis.com/books/v1/volumes?q=+in${searchWay}:${searchWord}`;
     console.log(url);
 
     superagent.get(url).then (results => {
