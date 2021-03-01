@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./../../layout/head.ejs')  %> 
+
+<body>
+     <main>
+        <script src="/app.js"></script>
+
+        <%- include('./../../layout/dropDown.ejs')  %> 
+
+      <div class = container2>
+      </div>
+      <div class=container3>
+        <section>
+            <ul>
+                 <li class="divBook">
+                     <img src="<%= book.image_url  %> " >
+                   <h2> <%= book.title  %></h2>
+                   <p><%= book.author%></p>
+                   <p> <%= book.description%></p>
+                   <p>  ISBN : <%= book.isbn%></p>
+                 </li>
+            </ul>
+         </section>
+      </div>
+    </main>
+</body>
+</html>
