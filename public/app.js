@@ -16,3 +16,8 @@ window.onclick = function(event) {
     }
   }
 }
+
+$('#updateForm').hide();
+$('#updateBtn').on('click',function(){
+    $('#updateForm').toggle();
+})

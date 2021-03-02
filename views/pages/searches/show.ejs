@@ -12,7 +12,7 @@
      <p class="header2">Search Results </p>
     </div>
 
-    <div class = container3>
+    <div class = 'container3'>
       <div id="bookItem">
         <% booksArray.forEach(element =>{ %>
          <div class="divBook">
@@ -22,7 +22,7 @@
          <p><%= element.description %></p>
 
          <section>
-          <form id="create-form" action="/addBooks" method="POST">
+          <form id="create-form" action="/books" method="POST">
               <fieldset>
                 <input hidden name="image_url" value = "<%= element.img%>">
                 <input hidden name="title" value = "<%= element.title %>">

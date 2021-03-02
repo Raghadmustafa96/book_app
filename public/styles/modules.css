@@ -32,6 +32,38 @@
   
   .show {display: block;}
 
+
+    #updateForm input[type=text],label ,textarea{
+    width: 300px;
+    padding: 12px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+
+  #updateForm button {
+    width: 300px;
+    background-color: #000000;
+    display: inline-block;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+  }
+
+  .button2{
+    width: 400px;
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    border:none;
+    margin-bottom: 10px;
+  }
+
   input[type=text],label{
     width: 75%;
     padding: 12px 20px;
@@ -53,7 +85,8 @@
   }
 
   #selectBook{
-    width: 200px;
+    width: 300px;
+    font-size: 20px;
 }
 
 .divBook{
@@ -61,7 +94,6 @@
   place-items: center;
   gap: 10px;
   padding-top: 10px;
-  border: 1px solid rgb(14, 13, 13);
   color: black;
   padding-bottom: 20px;
 }
@@ -81,4 +113,31 @@
   place-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 50px 50px 50px;    
+}
+
+#button_form{
+ display:grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: 1fr;   
+ place-items: center;
+}
+
+#form{
+  display:grid;
+  place-items: center;
+  margin-top: 40px;
+}
+
+.updateData{
+  display:grid;
+  place-items: center;
+}
+
+.ViewDetails{
+  color: white;
+  width: 300px;
+  background: black;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
 }

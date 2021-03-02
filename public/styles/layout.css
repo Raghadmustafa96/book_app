@@ -8,9 +8,7 @@
     
     main {
     display: grid;
-    
     width: 480px;
-    
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       grid-template-columns: 1fr;
@@ -21,8 +19,6 @@
     
     div {
     background-color: #a7a2a2;
-    border: 1px solid rgba(50, 50, 50);
-    /* padding: 20px; */
     font-size: 20px;
     color: white;
     }
@@ -73,7 +69,6 @@
         
         div {
         background-color: #a7a2a2;
-        border: 1px solid rgba(50, 50, 50);
         /* padding: 20px; */
         font-size: 20px;
         color: white;

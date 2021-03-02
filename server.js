@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000
 const app = express();
 const superagent = require('superagent');
 const pg = require('pg');
-
+const methodOverride = require('method-override');
 
 app.use(express.static('./public'));
 app.use(express.urlencoded({extended:true}));
@@ -21,6 +21,8 @@ if(PORT == 3000 || PORT == 3030){
 }
 
 app.set('view engine','ejs');
+
+app.use(methodOverride('_method'));
 
 app.get('/',(req,res)=>{
   let SQL = `SELECT * FROM books;`
@@ -41,8 +43,9 @@ app.post('/searches/new' , handleSearch);
 
 //.......................................................
 app.get('/books/:bookID',getDetails);
-app.post('/addBooks', addBookHandler );
-
+app.post('/books', addBookHandler );
+app.put('/updateBook/:bookID', updateHandler);
+app.delete('/deleteBook/:bookID', deleteHandler);
 app.use('*', notFoundRoute );
 
 
@@ -100,6 +103,29 @@ function countHandler() {
       // res.redirect('/');
       res.redirect(`/books/${result.rows[0].id}`);
 
+    })
+  }
+
+  function updateHandler(req, res) {
+    console.log(req.body);
+    let { title, author, isbn, description} = req.body;
+    // console.log(title,status);
+    let SQL = `UPDATE books SET author=$1,title=$2,isbn=$3,description=$4 WHERE id =$5;`;
+    let values = [author, title, isbn, description, req.params.bookID];
+    client.query(SQL, values)
+      .then(() => {
+        res.redirect(`/books/ ${req.params.bookID}`);
+      }) .catch(() => {
+            res.status(500).render('./pages/error');
+        });
+  }
+
+  function deleteHandler(req,res) {
+    let SQL = `DELETE FROM books WHERE id=$1;`;
+    let value = [req.params.bookID];
+    client.query(SQL,value)
+    .then(()=>{
+      res.redirect('/');
     })
   }
 
